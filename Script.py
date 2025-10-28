@@ -1,3 +1,7 @@
+import os, sys
+print("DEBUG: BOT_TOKEN present?:", bool(os.getenv("BOT_TOKEN")))
+print("DEBUG: Python version:", sys.version)
+sys.stdout.flush()
 import os
 class script(object):
     START_TXT = """<b>ʜᴇʏ {}, {}\n\nɪ ᴀᴍ ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ᴀᴜᴛᴏꜰɪʟᴛᴇʀ ʙᴏᴛ. ʏᴏᴜ ᴄᴀɴ ᴜsᴇ ᴍᴇ ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ɪ ᴡɪʟʟ ɢɪᴠᴇ ᴍᴏᴠɪᴇs ᴏʀ sᴇʀɪᴇs ɪɴ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴘᴍ !! 😍\n<blockquote>🌿 ᴍᴀɪɴᴛᴀɪɴᴇᴅ ʙʏ : <a href="https://t.me/JISSHU_BOTS">Jɪssʜᴜ Bᴏᴛs</a></blockquote></b>"""
@@ -372,4 +376,5 @@ developer : Mr.Jisshu
 ʙʏ /details ᴄᴏᴍᴍᴀɴᴅ
 </blockquote>
 Iғ ʏᴏᴜ ʜᴀᴠᴇ ᴀɴʏ ᴅᴏᴜʙᴛs ᴘʟᴇᴀsᴇ <a href="https://t.me/IM_JISSHU">ᴄᴏɴᴛᴀᴄᴛ</a> ᴍʏ <a href="https://t.me/IM_JISSHU">ᴀᴅᴍɪɴ</a></b>"""
+
 
