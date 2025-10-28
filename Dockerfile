@@ -1,31 +1,27 @@
-# Use Python 3.10 (cinemagoer ke liye >=3.9 chahiye)
+# # force Python >=3.9
 FROM python:3.10-slim
 
-# Prevent Python writing pyc files and buffering stdout
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-# Install system build deps needed for some pip packages (optional but safe)
+# (Optional) needed build tools for some pip packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    gcc \
-    libffi-dev \
+    build-essential gcc libffi-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy only requirements first to use cache better
-COPY requirements.txt .
+# cachebust ARG (helps when platform reuses layers)
+ARG CACHEBUST=1
+RUN echo "cachebust=${CACHEBUST}"
 
-# Upgrade pip and install Python deps
+# copy requirements and install
+COPY requirements.txt /app/requirements.txt
 RUN python -m pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
-# Now copy the rest of the repo
-COPY . .
+# copy rest of project
+COPY . /app
 
-# Expose whatever port your app uses (change if needed)
 EXPOSE 8080
-
-# Start command — change to your start file
 CMD ["python", "app.py"]
