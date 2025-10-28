@@ -1,5 +1,4 @@
-FROM python:3.9
-
+FROM python:3.10-slim
 # install git first
 RUN apt-get update && apt-get install -y git
 
